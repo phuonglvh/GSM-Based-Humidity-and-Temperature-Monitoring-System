@@ -1,0 +1,165 @@
+      <!-- Area Chart -->
+<span ng-show="me.admin" style="color: red">Cảnh báo: Không có trạng thái cảm biến nào được hiển thị. Quản trị viên không được phép truy cập dữ liệu người dùng</span>
+<div class="card mb-3" ng-show="!me.admin">
+  <div class="card-header">
+    <i class="fa fa-area-chart"></i> Trạng thái cảm biến: 
+    <select id="SearchChartByDevId" onchange="FlotChart()"></select>
+     <span id="chart-warning" style="color: red"></span>
+
+     <span style="padding-left: 5rem;">Focus on: 
+        <select id="totalDisplayedPoints" onchange="FlotChart()">
+          <option value=3>3</option>
+          <option value=5>5</option>
+          <option value=10 selected>10</option>
+          <option value=20>20</option>
+          <option value=30>30</option>
+          <option value=40>40</option>
+        </select>
+     lastet points</span> 
+     <span id="point-warning"></span>
+  </div>
+  <div class="card-body">
+    <!-- <canvas id="chartContainer" width="100%" height="30"></canvas> -->
+    <div id="chartContainer" style="height: 400px; width: 100%;"></div>
+
+  </div>
+  <div class="card-footer small text-muted" id="chart-updated-status"></div>
+
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fa fa-angle-up"></i>
+  </a>    
+</div>
+      
+
+<!-- CHART TAB -->
+<script type="text/javascript" src="/js/dependencies/dashboard/toastr/toastr.js"></script>
+<script src="/js/controllers/private/dashboard/user/tab/canvasjs.min.js"></script>
+<script>
+  function FlotChart(){
+    var dataPoints1 = [];
+    var dataPoints2 = [];
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+      zoomEnabled: true,
+      exportEnabled: true,
+      animationEnabled: true,
+      title: {
+        text: "Do am - Nhiet do- Thoi gian"
+      },
+      axisY:{
+        includeZero: false
+      }, 
+      toolTip: {
+        shared: true
+      },
+      legend: {
+        cursor:"pointer",
+        verticalAlign: "top",
+        fontSize: 22,
+        fontColor: "dimGrey",
+        itemclick : toggleDataSeries
+      },
+      data: [{ 
+        type: "spline",
+        showInLegend: true,
+        name: "Humidity",
+        dataPoints: dataPoints1
+        },
+        {       
+          type: "spline",
+          showInLegend: true,
+          name: "Temperature" ,
+          dataPoints: dataPoints2
+      }]
+    });/*var chart*/
+
+    function toggleDataSeries(e) {
+      if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+        e.dataSeries.visible = false;
+      }
+      else {
+        e.dataSeries.visible = true;
+      }
+      chart.render();
+    }/*toggleDataSeries*/
+
+    var updateInterval = 1000;
+    var LastPacketid = 0;
+    var LastInput = 0;
+    var totalDisplayedPoints = 0;
+    var SearchChartByDevId = document.getElementById('SearchChartByDevId').value;
+
+
+    function updateChart(chart) {
+      SearchChartByDevId = document.getElementById('SearchChartByDevId').value;
+      if($.isNumeric(SearchChartByDevId) && SearchChartByDevId > 0){
+        totalDisplayedPoints = document.getElementById('totalDisplayedPoints').value;
+          if($.isNumeric(totalDisplayedPoints)){
+            if(document.getElementById('SearchChartByDevId').value != LastInput){
+              LastInput = document.getElementById('SearchChartByDevId').value;
+              LastPacketid = 0;   
+            }//if
+
+            $.get('/data_collect/GetDevDataByID/'+ document.getElementById('SearchChartByDevId').value, 
+              function(getRes, status){
+                if(LastPacketid <  getRes[getRes.length -1].packetid){
+                  for (var i = 0; i < getRes.length; i++) {
+                    if(getRes[i].packetid > LastPacketid){
+                      // pushing the new values
+                      dataPoints1.push({
+                        label: new Date(getRes[i].createdAt).toLocaleString(),
+                        y: getRes[i].humid,
+                        x: i,
+                      });
+                      dataPoints2.push({
+                        label: new Date(getRes[i].createdAt).toLocaleString(),
+                        y: getRes[i].temp,
+                        x: i,
+                      });
+                    }//if
+                  }//for
+                  var prevdps2Length = dataPoints2.length;
+                  var prevdps1Length = dataPoints1.length;
+                  // console.log("previous shift:" + JSON.stringify(dataPoints2));
+
+                  if(prevdps2Length > totalDisplayedPoints)
+                  {
+                    for (var i = 0; i < prevdps2Length - totalDisplayedPoints; i++) {
+                      dataPoints2.shift();
+                    }
+                  }
+                  if(prevdps1Length > totalDisplayedPoints)
+                  {
+                    for (var i = 0; i < prevdps1Length - totalDisplayedPoints; i++) {
+                      dataPoints1.shift();
+                    }
+                  }
+                  // console.log("after shift:" + JSON.stringify(dataPoints2));
+                  LastPacketid = getRes[getRes.length -1].packetid;
+                  chart.options.data[0].legendText = " Humidity: " + getRes[getRes.length -1].humid;
+                  chart.options.data[1].legendText = " Temperature: " + getRes[getRes.length -1].temp; 
+                  chart.render();
+                }//if new
+            });//get 
+        }//if 2
+      }//if 1
+    }//*updateChart*/
+
+    if($.isNumeric(SearchChartByDevId) && SearchChartByDevId > 0){
+     var loop = setInterval(function(){ 
+        SearchChartByDevId = document.getElementById('SearchChartByDevId').value;
+        if($.isNumeric(SearchChartByDevId) && SearchChartByDevId > 0){
+          updateChart(chart);
+        } 
+        else {
+          toastr.warning("Vui lòng chọn mã thiết bị");
+          StopsetInterval();
+        }
+      }, updateInterval);
+    }//if for Interval
+
+    function StopsetInterval() {
+        clearInterval(loop);
+    }
+  }
+</script>      

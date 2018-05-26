@@ -1,0 +1,19 @@
+AT+SAPBR=3,1,"Contype","GPRS"
+AT+SAPBR=3,1,"APN","internet"
+
+AT+SAPBR=1,1
+AT+SAPBR=2,1
+
+AT+HTTPINIT
+//finish init
+
+AT+HTTPPARA="URL","http://YOUR_SERVER_PUBLIC_IP:8000/data_collect/testget?Lat=12345.67890"
+AT+HTTPPARA = "CID",1
+AT+HTTPACTION=0
+//wait 5s
+
+AT+HTTPREAD
+
+AT+HTTPTERM
+
+

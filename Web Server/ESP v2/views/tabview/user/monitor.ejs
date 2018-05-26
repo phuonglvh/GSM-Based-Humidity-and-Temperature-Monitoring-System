@@ -1,0 +1,54 @@
+      <!--  DataTables Card-->
+    <link href="/styles/dashboard/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+  <div class="card mb-3">
+    <div class="card-header">
+      <i class="fa fa-table"></i> 
+        <!-- USER -->
+        <span ng-show="!me.admin">Giám sát nhiệt độ - độ ẩm</span>
+          <i class="fa fa-search" style="padding-left:5em;"  ng-show="!me.admin"></i>
+          <select id="SearchMonitorDataByDevId" type="number" ng-change="GetDevDataByID(DevId)" ng-model="DevId" ng-show="!me.admin"></select>
+  
+    </div><!-- card-header -->
+
+    <div class="card-body">
+      <div class="table-responsive">
+        <!-- Normal User -->
+        <table ng-show="!me.admin" class="table table-bordered" width="100%" id="MonitorTable" cellspacing="0">
+            <thead>
+               <tr>
+                <th>Mã thiết bị</th>
+                <!-- <th>Tên thiết bị</th>
+                <th>Thông số thiết bị</th> -->
+                <!-- <th>Có hiệu lực</th> -->
+                <th>Nhiệt độ</th>
+                <th>Độ ẩm</th>
+                <th>Vào lúc</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+               <tr>
+                <th>Mã thiết bị</th>
+                <!-- <th>Tên thiết bị</th>
+                <th>Thông số thiết bị</th> -->
+                <!-- <th>Có hiệu lực</th> -->
+                <th>Nhiệt độ</th>
+                <th>Độ ẩm</th>
+                <th>Vào lúc</th>
+              </tr>
+            </tfoot>
+        </table> <!-- ./user table -->
+
+      </div><!-- table-responsive -->
+    </div><!-- card-body -->
+
+    <div class="card-footer small text-muted">Cập nhật ngày hôm qua lúc 11:59 PM
+    </div><!-- card-footer -->
+      
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+  </div> <!-- <div class="card mb-3"> -->
+
+ 

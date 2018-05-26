@@ -1,0 +1,1 @@
+"./Code_Doc_NhietDo_DoAm_Gui_Len_Server_Version2.o" -Wl,--start-group -ltivac_EK-TM4C123GXL_core -Wl,--end-group 
