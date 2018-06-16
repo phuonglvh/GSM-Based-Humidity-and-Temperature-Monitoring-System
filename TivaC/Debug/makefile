@@ -2,29 +2,31 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-SHELL = cmd.exe
-
-CG_TOOL_ROOT := C:/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major-win32
+CG_TOOL_ROOT := /home/anonymous/ti/ccsv7/tools/compiler/ti-cgt-arm_18.1.1.LTS
 
 GEN_OPTS__FLAG := 
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
-"./Code_Doc_NhietDo_DoAm_Gui_Len_Server_Version2.o" \
+"./main.obj" \
+"./tm4c123gh6pm_startup_ccs.obj" \
+"./include/uartstdio.obj" \
+"../driverlib.lib" \
+"../tm4c123gh6pm.cmd" \
 $(GEN_CMDS__FLAG) \
--Wl,--start-group \
--ltivac_EK-TM4C123GXL_core \
--Wl,--end-group \
+-llibc.a \
 
 -include ../makefile.init
 
-RM := DEL /F
-RMDIR := RMDIR /S/Q
+RM := rm -rf
+RMDIR := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include subdir_vars.mk
+-include include/subdir_vars.mk
 -include subdir_rules.mk
+-include include/subdir_rules.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -121,53 +123,47 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-Code_Doc_NhietDo_DoAm_Gui_Len_Server_Version2.out \
+GSM\ System.out \
 
 EXE_OUTPUTS__QUOTED += \
-"Code_Doc_NhietDo_DoAm_Gui_Len_Server_Version2.out" \
+"GSM System.out" \
 
 BIN_OUTPUTS += \
-Code_Doc_NhietDo_DoAm_Gui_Len_Server_Version2.bin \
+GSM\ System.hex \
 
 BIN_OUTPUTS__QUOTED += \
-"Code_Doc_NhietDo_DoAm_Gui_Len_Server_Version2.bin" \
+"GSM System.hex" \
 
 
 # All Target
-all: $(OBJS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "Code_Doc_NhietDo_DoAm_Gui_Len_Server_Version2.out" secondary-outputs
-
-dependents:
-	-cd C:/Users/phuc\ oc\ cho/workspace_v8/tivac_EK-TM4C123GXL_core/Debug && $(MAKE) clean all
+all: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
+	@$(MAKE) --no-print-directory -Onone "GSM System.out"
 
 # Tool invocations
-Code_Doc_NhietDo_DoAm_Gui_Len_Server_Version2.out: $(OBJS) $(GEN_CMDS) C:/Users/phuc\ oc\ cho/workspace_v8/tivac_EK-TM4C123GXL_core/Debug/libtivac_EK-TM4C123GXL_core.a
+GSM\ System.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
-	@echo 'Invoking: GNU Linker'
-	"C:/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major-win32/bin/arm-none-eabi-gcc.exe" -fno-exceptions -Os -ffunction-sections -fdata-sections -g -gdwarf-3 -gstrict-dwarf -w -Wall -fno-threadsafe-statics --param max-inline-insns-single=500 -mabi=aapcs -march=armv7e-m -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -Wl,-Map,"Code_Doc_NhietDo_DoAm_Gui_Len_Server_Version2.map" --entry ResetISR -nostartfiles -nostdlib -Wl,--gc-sections -L"C:/Users/phuc oc cho/workspace_v8/tivac_EK-TM4C123GXL_core/Debug" -Os -specs=nano.specs -specs=rdimon.specs -specs=nosys.specs -Wl,--check-sections -Wl,--unresolved-symbols=report-all -Wl,--warn-common -fsingle-precision-constant -o"Code_Doc_NhietDo_DoAm_Gui_Len_Server_Version2.out" $(ORDERED_OBJS)
+	@echo 'Invoking: ARM Linker'
+	"/home/anonymous/ti/ccsv7/tools/compiler/ti-cgt-arm_18.1.1.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"GSM System.map" --heap_size=0 --stack_size=512 -i"/home/anonymous/ti/ccsv7/tools/compiler/ti-cgt-arm_18.1.1.LTS/lib" -i"/home/anonymous/ti/ccsv7/tools/compiler/ti-cgt-arm_18.1.1.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="GSM System_linkInfo.xml" --rom_model -o "GSM System.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
-Code_Doc_NhietDo_DoAm_Gui_Len_Server_Version2.bin: $(EXE_OUTPUTS)
+GSM\ System.hex: $(EXE_OUTPUTS)
 	@echo 'Building files: $(strip $(EXE_OUTPUTS__QUOTED))'
-	@echo 'Invoking: GNU Objcopy Utility'
-	"C:/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major-win32/bin/arm-none-eabi-objcopy.exe" -O binary $(EXE_OUTPUTS__QUOTED) "Code_Doc_NhietDo_DoAm_Gui_Len_Server_Version2.bin"
+	@echo 'Invoking: ARM Hex Utility'
+	"/home/anonymous/ti/ccsv7/tools/compiler/ti-cgt-arm_18.1.1.LTS/bin/armhex"  -o "GSM System.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $(strip $(EXE_OUTPUTS__QUOTED))'
 	@echo ' '
 
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "Code_Doc_NhietDo_DoAm_Gui_Len_Server_Version2.o" 
-	-$(RM) "Code_Doc_NhietDo_DoAm_Gui_Len_Server_Version2.d" 
+	-$(RM) "main.obj" "tm4c123gh6pm_startup_ccs.obj" "include/uartstdio.obj" 
+	-$(RM) "main.d" "tm4c123gh6pm_startup_ccs.d" "include/uartstdio.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
-secondary-outputs: $(BIN_OUTPUTS)
-
 .PHONY: all clean dependents
 .SECONDARY:
-C:/Users/phuc\ oc\ cho/workspace_v8/tivac_EK-TM4C123GXL_core/Debug/libtivac_EK-TM4C123GXL_core.a:
 
 -include ../makefile.targets
 

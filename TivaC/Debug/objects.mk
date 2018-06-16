@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -ltivac_EK-TM4C123GXL_core
+LIBS := -llibc.a
 

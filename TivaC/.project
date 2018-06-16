@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Code_Doc_NhietDo_DoAm_Gui_Len_Server_Version2</name>
+	<name>GSM System</name>
 	<comment></comment>
 	<projects>
-		<project>tivac_EK-TM4C123GXL_core</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
@@ -19,7 +18,6 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>com.ti.ccstudio.energia.sketchNature</nature>
 		<nature>com.ti.ccstudio.core.ccsNature</nature>
 		<nature>org.eclipse.cdt.core.cnature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>

@@ -2,20 +2,18 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-SHELL = cmd.exe
-
 # Each subdirectory must supply rules for building sources it contributes
-Code_Doc_NhietDo_DoAm_Gui_Len_Server_Version2.cpp: ../Code_Doc_NhietDo_DoAm_Gui_Len_Server_Version2.ino
+main.obj: ../main.c $(GEN_OPTS) | $(GEN_HDRS)
 	@echo 'Building file: "$<"'
-	@echo 'Invoking: Resource Custom Build Step'
-	
+	@echo 'Invoking: ARM Compiler'
+	"/home/anonymous/ti/ccsv7/tools/compiler/ti-cgt-arm_18.1.1.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="/mnt/anonymous/Academic/Google Drive BKU/Honor Program/Term 172/Embedded System Programming/Project/Code/TivaC" --include_path="/home/anonymous/ti/ccsv7/tools/compiler/ti-cgt-arm_18.1.1.LTS/include" --include_path="/media/anonymous/Software/SOFTWARES/STUDY SOFTWARES/CCSv7/TivaWare" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw" $(GEN_OPTS__FLAG) "$(shell echo $<)"
 	@echo 'Finished building: "$<"'
 	@echo ' '
 
-%.o: ./%.cpp $(GEN_OPTS) | $(GEN_HDRS)
+tm4c123gh6pm_startup_ccs.obj: ../tm4c123gh6pm_startup_ccs.c $(GEN_OPTS) | $(GEN_HDRS)
 	@echo 'Building file: "$<"'
-	@echo 'Invoking: GNU Compiler'
-	"C:/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major-win32/bin/arm-none-eabi-gcc.exe" -c -mcpu=cortex-m4 -march=armv7e-m -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -fno-exceptions -I"C:/Users/phuc oc cho/workspace_v8/Code_Doc_NhietDo_DoAm_Gui_Len_Server_Version2" -I"C:/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major-win32/arm-none-eabi/include" -Os -ffunction-sections -fdata-sections -g -gdwarf-3 -gstrict-dwarf -w -Wall -fno-threadsafe-statics --param max-inline-insns-single=500 -mabi=aapcs -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -fno-rtti $(GEN_OPTS__FLAG) -o"$@" "$<"
+	@echo 'Invoking: ARM Compiler'
+	"/home/anonymous/ti/ccsv7/tools/compiler/ti-cgt-arm_18.1.1.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="/mnt/anonymous/Academic/Google Drive BKU/Honor Program/Term 172/Embedded System Programming/Project/Code/TivaC" --include_path="/home/anonymous/ti/ccsv7/tools/compiler/ti-cgt-arm_18.1.1.LTS/include" --include_path="/media/anonymous/Software/SOFTWARES/STUDY SOFTWARES/CCSv7/TivaWare" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="tm4c123gh6pm_startup_ccs.d_raw" $(GEN_OPTS__FLAG) "$(shell echo $<)"
 	@echo 'Finished building: "$<"'
 	@echo ' '
 

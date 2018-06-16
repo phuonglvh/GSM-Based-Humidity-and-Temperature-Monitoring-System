@@ -39,7 +39,6 @@ module.exports = {
 	      		return res.badRequest("wrong request!");
 		    }//else
 	  	});//User.findOne
-
 	},//GetDevList
 
 
@@ -81,9 +80,7 @@ module.exports = {
 		              return res.ok();
 		            });//Device.update
 	        	});/*Device.findOne*/
-
 	        }//else if(foundUser.admin)
-
 	      });//User.findOne
 	},/*ChangValidDevice*/
 
