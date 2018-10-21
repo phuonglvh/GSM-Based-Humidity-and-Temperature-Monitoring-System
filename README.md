@@ -58,7 +58,7 @@ III.1 Web server
 III.2 TivaC
 ----
 <p align="center">
-  <img src="Documentary/img/4.png" alt="Hardware" style="width: 400px;"/>
+  <img src="Documentary/img/4.png" alt="Hardware" height="120"/>
 </p>
 
 ```
@@ -69,34 +69,21 @@ III.2 TivaC
 IV. System model
 ==============
 <p align="center">
-  <img src="Documentary/img/system-model.png" alt="System model" style="width: 700px;"/>
+  <img src="Documentary/img/system-model.png" alt="System model" height="180"/>
 </p>
 
 
 V. Some results
 ==============
 <p align="center">
-  <img src="Documentary/img/1.png" alt="Homepage" style="width: 600px;"/>
+  <img src="Documentary/img/1.png" alt="Homepage" height="180"/>
+  <img src="Documentary/img/2.png" alt="user dashboard" height="180"/>
+  <img src="Documentary/img/3.png" alt="add devices" height="180"/>
+  <img src="Documentary/img/6.png" alt="H and T" height="180"/>
+  <img src="Documentary/img/7.png" alt="Graph" height="180"/>
+  <img src="Documentary/img/8.png" alt="Warning" height="180" width="370"/>
 </p>
 
 <p align="center">
-  <img src="Documentary/img/2.png" alt="user dashboard" style="width: 600px;"/>
-</p>
-
-<p align="center">
-  <img src="Documentary/img/3.png" alt="add devices" style="width: 600px;"/>
-</p>
-
-<p align="center">
-  <img src="Documentary/img/6.png" alt="H and T" style="width: 600px;"/>
-</p>
-<p align="center">
-  <img src="Documentary/img/7.png" alt="Graph" style="width: 600px;"/>
-</p>
-<p align="center">
-  <img src="Documentary/img/8.png" alt="Warning" style="width: 600px;"/>
-</p>
-
-<p align="center">
-  <img src="Documentary/img/5.png" alt="TivaC send data" style="width: 600px;"/>
+  <img src="Documentary/img/5.png" alt="TivaC send data" height="230"/>
 </p>
