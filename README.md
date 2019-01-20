@@ -1,4 +1,4 @@
-# GSM-based Humidity and Temperature Monitoring System(BHPS)
+# GSM-based Humidity and Temperature Monitoring System
 **Keywords: GSM, Web server, SailsJS, Tiva, DHT11** 
 
 # Introduction
