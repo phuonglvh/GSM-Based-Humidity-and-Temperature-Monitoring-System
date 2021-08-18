@@ -1,14 +1,14 @@
 {
-  "name": "Project",
+  "name": "gsm-based-humidity-temperature-monitoring-system-backend",
   "private": true,
   "version": "0.0.0",
-  "description": "a Sails application",
+  "description": "Backend of the system",
   "keywords": [],
   "dependencies": {
     "commander": "^2.15.1",
-    "ejs": "2.3.4",
+    "ejs": "3.1.6",
     "googlemaps": "^1.12.0",
-    "grunt": "1.0.1",
+    "grunt": "1.4.1",
     "grunt-contrib-clean": "1.0.0",
     "grunt-contrib-coffee": "1.0.0",
     "grunt-contrib-concat": "1.0.1",
@@ -42,11 +42,5 @@
     "debug": "node debug app.js",
     "start": "node app.js"
   },
-  "main": "app.js",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/anonymous/Project.git"
-  },
-  "author": "anonymous",
-  "license": ""
+  "main": "app.js"
 }
