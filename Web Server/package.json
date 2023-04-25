@@ -28,7 +28,7 @@
     "machinepack-gravatar": "^2.0.0",
     "machinepack-passwords": "^2.3.0",
     "ng-onload": "^0.8.0",
-    "npm": "^6.0.0",
+    "npm": "^9.6.5",
     "parse-decimal-number": "^1.0.0",
     "rc": "1.0.1",
     "sails": "^0.12.14",
