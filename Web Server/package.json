@@ -30,7 +30,7 @@
     "ng-onload": "^0.8.0",
     "parse-decimal-number": "^1.0.0",
     "rc": "1.2.8",
-    "sails": "^1.5.8",
+    "sails": "^1.5.9",
     "sails-disk": "~2.1.2",
     "sails-hook-grunt": "^5.0.0",
     "sails-mysql": "^3.0.1",
