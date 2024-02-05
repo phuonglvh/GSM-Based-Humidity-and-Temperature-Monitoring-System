@@ -5,7 +5,7 @@
   "description": "Backend of the system",
   "keywords": [],
   "dependencies": {
-    "commander": "^11.1.0",
+    "commander": "^12.0.0",
     "ejs": "3.1.9",
     "googlemaps": "^1.12.0",
     "grunt": "1.6.1",
